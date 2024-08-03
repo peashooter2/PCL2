@@ -36,6 +36,7 @@ jobs:
     - name: Setup MSBuild.exe
       uses: microsoft/setup-msbuild@v2
       with:
+        vs-prerelease: true
         msbuild-architecture: x64
 
     - name: Build
@@ -46,3 +47,9 @@ jobs:
       with:
         name: ${{ matrix.configuration }} ${{ env.Describe }}
         path: Plain Craft Launcher 2\obj\${{ matrix.configuration }}\Plain Craft Launcher 2.exe
+
+    - name: Upload artifact (Symbols)
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ matrix.configuration }} ${{ env.Describe }}-symbols
+        path: Plain Craft Launcher 2\obj\${{ matrix.configuration }}\Plain Craft Launcher 2.pdb
