@@ -469,9 +469,8 @@ Public Class FormMain
 #If Not BETA Then
         Select Case Setup.Get("SystemCount")
             Case 1
-                MyMsgBox("欢迎使用 PCL 快照版！" & vbCrLf &
-                         "快照版包含尚未在正式版发布的测试性功能，仅用于赞助者本人尝鲜。所以请不要发给其他人或者用于制作整合包哦！" & vbCrLf &
-                         "如果你并非通过赞助或赞助者本人邀请进群获得的本程序，那么可能是有人在违规传播，记得提醒他一下啦。", "快照版使用说明")
+                MyMsgBox("欢迎使用 PCL 开源版！" & vbCrLf &
+                         "开源版包含PCL2正式版源码的大部分功能以及测试源代码和Github Actions Workflow文件的更改，仅用于调试。请勿发给其他人或者用来制作整合包！")
         End Select
         If Setup.Get("SystemCount") >= 99 Then
             If ThemeUnlock(6, False) Then
