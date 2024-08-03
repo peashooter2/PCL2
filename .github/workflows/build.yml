@@ -40,7 +40,7 @@ jobs:
         msbuild-architecture: x64
 
     - name: Build
-      run: msbuild "Plain Craft Launcher 2\Plain Craft Launcher 2.vbproj" -p:Configuration=${{ matrix.configuration }}
+      run: msbuild "Plain Craft Launcher 2\Plain Craft Launcher 2.vbproj" -p:Configuration=${{ matrix.configuration }} -binaryLogger:LogFile="Plain Craft Launcher 2\obj\${{ matrix.configuration }}\Plain Craft Launcher 2-build-log.binlog"
 
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v4
@@ -53,3 +53,9 @@ jobs:
       with:
         name: ${{ matrix.configuration }} ${{ env.Describe }}-symbols
         path: Plain Craft Launcher 2\obj\${{ matrix.configuration }}\Plain Craft Launcher 2.pdb
+
+    - name: Upload artifact (Build-Logs)
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ matrix.configuration }} ${{ env.Describe }}-symbols
+        path: Plain Craft Launcher 2\obj\${{ matrix.configuration }}\Plain Craft Launcher 2-build-log.binlog
