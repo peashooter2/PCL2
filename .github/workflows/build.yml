@@ -58,4 +58,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: ${{ matrix.configuration }} ${{ env.Describe }}-build-logs
-        path: Plain Craft Launcher 2\obj\${{ matrix.configuration }}\Plain Craft Launcher 2-build-log.binlog
+        path: Plain Craft Launcher 2\obj\${{ matrix.configuration }}\Plain Craft Launcher 2-${{ env.Describe }}-build-log.binlog
