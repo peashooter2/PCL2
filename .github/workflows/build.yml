@@ -38,7 +38,10 @@ jobs:
       with:
         vs-prerelease: true
         msbuild-architecture: x64
-
+        
+    - name: Clear local NuGet cache (workaround for failed restores on windows-latest)
+      run: dotnet nuget locals all --clear
+      
     - name: Build
       run: msbuild "Plain Craft Launcher 2\Plain Craft Launcher 2.vbproj" -p:Configuration=${{ matrix.configuration }} -binaryLogger:LogFile="Plain Craft Launcher 2\obj\${{ matrix.configuration }}\Plain Craft Launcher 2-${{ matrix.configuration }}-${{ env.Describe }}-build-log.binlog"
 
