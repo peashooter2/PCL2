@@ -16,7 +16,7 @@ jobs:
     runs-on: windows-latest
     strategy:  
        matrix:  
-         configuration: [Debug, Release]
+         configuration: [Debug]
     steps:
     - name: Checkout
       uses: actions/checkout@v4
@@ -49,4 +49,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: ${{ matrix.configuration }} ${{ env.describe }}
-        path: Plain Craft Launcher 2\obj\${{ matrix.configuration }}\Plain Craft Launcher 2.exe
+        path: Plain Craft Launcher 2\obj\${{ matrix.configuration }}\Plain Craft Launcher 2.*
